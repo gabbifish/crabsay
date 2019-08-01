@@ -4,8 +4,8 @@ extern crate clap;
 use clap::{Arg, App};
 
 static FERRIS: &str = "
-           /   
-          /
+    \\         
+     \\     
     _~^~^~_
 \\) /  o o  \\ (/
   '_   -   _'
