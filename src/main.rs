@@ -98,22 +98,22 @@ fn print_output(output_text: Vec<String>, max_width: u32) {
 }
 
 fn print_top_bottom(max_width: u32) {
-    // add 4 to max_width to account for | / \ < > edge characters and one space of buffer on each side
-    let border = String::from_utf8(vec![b'-'; (max_width+4) as usize]).unwrap();
+    // add 2 to max_width to account for one space of buffer on each side
+    let border = String::from_utf8(vec![b'-'; (max_width+2) as usize]).unwrap();
     print!("  {}", border);
 }
 
 fn print_body(output_text: Vec<String>, max_width: u32) {
     // Handle one-line case
     if output_text.len() == 1 {
-        let padding = String::from_utf8(vec![b' '; max_width as usize - output_text[0].len()+2]).unwrap();
+        let padding = String::from_utf8(vec![b' '; max_width as usize - output_text[0].len()]).unwrap();
         println!(" < {}{} >", &output_text[0], padding)
     }
     // Handle 2+ line case
     else {
         let mut line_counter = 0;
         for line in &output_text {
-            let padding = String::from_utf8(vec![b' '; max_width as usize - line.len()+2]).unwrap();
+            let padding = String::from_utf8(vec![b' '; max_width as usize - line.len()]).unwrap();
             if line_counter == 0 {
                 println!(" / {}{} \\", &line, padding);
             }
